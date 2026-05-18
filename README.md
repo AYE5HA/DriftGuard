@@ -5,6 +5,7 @@
 ![Local Demo](https://img.shields.io/badge/Local%20Demo-no%20billing-success)
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 [![DriftGuard CI](https://github.com/AYE5HA/DriftGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/AYE5HA/DriftGuard/actions/workflows/ci.yml)
+
 DriftGuard is an automated schema drift monitoring system for JSON and CSV files landing in Google Cloud Storage. It samples incoming files, infers the current schema, compares it with a Firestore baseline, logs anomalies to BigQuery, and sends a Slack alert before downstream analytics jobs break.
 
 The project is intentionally small and readable. 
