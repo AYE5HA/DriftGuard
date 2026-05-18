@@ -10,7 +10,7 @@ import functions_framework
 from google.cloud import storage
 
 from bq_logger import log_anomalies
-from firestore_store import fetch_baseline, register_baseline_from_yaml
+from firestore_store import fetch_baseline, register_baseline, register_baseline_from_yaml
 from notifier import send_slack_alert
 from schema_detector import compare_schemas, infer_schema_from_bytes
 
@@ -27,9 +27,14 @@ def driftguard(request):
     action = request_json.get("action", request.args.get("action", "detect"))
 
     if action == "register":
+        inline_config = request_json.get("config")
+        if inline_config:
+            baseline = register_baseline(inline_config, BASELINE_COLLECTION)
+            return {"message": "Baseline registered.", "baseline": baseline}, 200
+
         config_path = request_json.get("config_path") or request.args.get("config_path")
         if not config_path:
-            return {"error": "config_path is required for registration."}, 400
+            return {"error": "config or config_path is required for registration."}, 400
         baseline = register_baseline_from_yaml(config_path, BASELINE_COLLECTION)
         return {"message": "Baseline registered.", "baseline": baseline}, 200
 

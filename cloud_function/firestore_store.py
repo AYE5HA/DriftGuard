@@ -21,6 +21,14 @@ def register_baseline_from_yaml(
     with open(config_path, "r", encoding="utf-8") as config_file:
         config = yaml.safe_load(config_file)
 
+    return register_baseline(config, collection_name)
+
+
+def register_baseline(
+    config: dict[str, Any],
+    collection_name: str = "driftguard_baselines",
+) -> dict[str, Any]:
+    """Store a baseline schema config in Firestore."""
     dataset_name = config["dataset_name"]
     baseline_document = {
         "dataset_name": dataset_name,
