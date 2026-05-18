@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from typing import Any
 
-from slack_sdk.webhook import WebhookClient
-
 
 def send_slack_alert(webhook_url: str | None, dataset_name: str, anomalies: list[dict[str, Any]]) -> None:
     """Send a compact Slack alert when anomalies are present."""
@@ -30,6 +28,8 @@ def send_slack_alert(webhook_url: str | None, dataset_name: str, anomalies: list
             f"- [{anomaly['severity']}] {anomaly['anomaly_type']}: "
             f"`{column_text}` - {anomaly['details']}"
         )
+
+    from slack_sdk.webhook import WebhookClient
 
     client = WebhookClient(webhook_url)
     response = client.send(text="\n".join(lines))

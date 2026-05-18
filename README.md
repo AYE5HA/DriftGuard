@@ -4,6 +4,36 @@ DriftGuard is a beginner-friendly schema drift monitoring system for JSON and CS
 
 The project is intentionally small and readable. It is built to feel like a polished junior-to-mid level cloud data engineering portfolio project, not an enterprise platform.
 
+## No-Billing Local Demo
+
+Google Cloud may require an active billing account to deploy Cloud Functions, Cloud Scheduler, and Cloud Storage resources. If you do not want to attach billing, you can still run the full drift detection workflow locally.
+
+```bash
+python local_demo.py
+```
+
+This local demo:
+
+- loads the baseline schema from [config/sample_config.yaml](config/sample_config.yaml)
+- reads [samples/events_drift.json](samples/events_drift.json)
+- infers the incoming schema
+- detects renamed columns, new columns, and datatype changes
+- writes local outputs to `demo_output/`
+- creates a Slack-style alert preview without sending anything externally
+
+Example terminal output:
+
+```text
+DriftGuard local demo complete
+Dataset: ecommerce_events
+Anomalies: 3
+
+Detected changes:
+- [MEDIUM] renamed_column: Possible rename from user_id to userid with 92.3% similarity.
+- [LOW] new_column: New column marketing_source was found in the incoming file.
+- [HIGH] datatype_change: Column purchase_amount changed from float to string.
+```
+
 ## Architecture
 
 ```mermaid
@@ -47,6 +77,8 @@ DriftGuard/
     events.csv
   tests/
     test_schema_detector.py
+    test_local_demo.py
+  local_demo.py
   requirements.txt
   README.md
 ```
@@ -277,8 +309,11 @@ pip install pytest
 
 ## Screenshots
 
-Add screenshots here after deployment:
+Suggested portfolio screenshots:
 
+- Local demo terminal output
+- `demo_output/incidents.json`
+- GitHub repository page
 - Cloud Scheduler job
 - Cloud Function logs
 - BigQuery incident rows
