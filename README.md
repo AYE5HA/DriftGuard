@@ -1,8 +1,26 @@
 # DriftGuard
 
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![GCP Ready](https://img.shields.io/badge/GCP-ready-4285F4)
+![Local Demo](https://img.shields.io/badge/Local%20Demo-no%20billing-success)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
+
 DriftGuard is a beginner-friendly schema drift monitoring system for JSON and CSV files landing in Google Cloud Storage. It samples incoming files, infers the current schema, compares it with a Firestore baseline, logs anomalies to BigQuery, and sends a Slack alert before downstream analytics jobs break.
 
 The project is intentionally small and readable. It is built to feel like a polished junior-to-mid level cloud data engineering portfolio project, not an enterprise platform.
+
+## Portfolio Summary
+
+DriftGuard demonstrates practical data engineering skills:
+
+- ETL pipeline reliability
+- schema inference for semi-structured data
+- cloud-native architecture on Google Cloud
+- BigQuery-style incident logging
+- Slack-style alerting
+- fuzzy matching for likely renamed columns
+- testable Python modules
+- clear documentation and local demo support
 
 ## No-Billing Local Demo
 
@@ -34,6 +52,8 @@ Detected changes:
 - [HIGH] datatype_change: Column purchase_amount changed from float to string.
 ```
 
+See [docs/demo_walkthrough.md](docs/demo_walkthrough.md) for a step-by-step walkthrough.
+
 ## Architecture
 
 ```mermaid
@@ -45,6 +65,8 @@ flowchart LR
     Detector --> BQ["BigQuery incident table"]
     Detector --> Slack["Slack webhook alert"]
 ```
+
+For more detail, see [docs/architecture.md](docs/architecture.md).
 
 ## What DriftGuard Detects
 
@@ -216,6 +238,8 @@ python main.py
 ```
 
 ## Deploy Cloud Function
+
+Detailed deployment notes are available in [docs/gcp_deployment_notes.md](docs/gcp_deployment_notes.md).
 
 Deploy as an HTTP-triggered Python 3.11 Cloud Function.
 
