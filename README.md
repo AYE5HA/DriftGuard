@@ -8,7 +8,6 @@
 
 DriftGuard is an automated schema drift monitoring system for JSON and CSV files landing in Google Cloud Storage. It samples incoming files, infers the current schema, compares it with a Firestore baseline, logs anomalies to BigQuery, and sends a Slack alert before downstream analytics jobs break.
 
-The project is intentionally small and readable. 
 
 ## The problem:
 ETL pipelines feeding BigQuery break silently when upstream APIs or data sources change their schema — a column gets renamed, a field type changes, a new nested key appears. Engineers discover it when their Looker dashboard shows zeros or nulls at 2am. DriftGuard catches schema drift before it reaches your analytics layer, with severity-ranked alerts and a full incident log.
