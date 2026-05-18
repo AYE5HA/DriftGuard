@@ -308,6 +308,8 @@ When `samples/events_drift.json` is compared against the sample baseline, DriftG
 ]
 ```
 
+![Local Demo Output](docs/images/local-demo-output.png)
+
 ## Local Tests
 
 Run the lightweight unit tests:
