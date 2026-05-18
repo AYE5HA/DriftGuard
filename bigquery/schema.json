@@ -1,0 +1,37 @@
+[
+  {
+    "name": "timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "dataset_name",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "anomaly_type",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "old_column",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "new_column",
+    "type": "STRING",
+    "mode": "NULLABLE"
+  },
+  {
+    "name": "severity",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  },
+  {
+    "name": "details",
+    "type": "STRING",
+    "mode": "REQUIRED"
+  }
+]

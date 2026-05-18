@@ -1,0 +1,3 @@
+user_id,event_type,purchase_amount,timestamp,user.email
+u_1001,purchase,49.99,2026-05-18T09:15:00Z,customer@example.com
+u_1002,view,0.0,2026-05-18T09:16:00Z,browser@example.com

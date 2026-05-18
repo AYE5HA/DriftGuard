@@ -1,0 +1,20 @@
+[
+  {
+    "user_id": "u_1001",
+    "event_type": "purchase",
+    "purchase_amount": 49.99,
+    "timestamp": "2026-05-18T09:15:00Z",
+    "user": {
+      "email": "customer@example.com"
+    }
+  },
+  {
+    "user_id": "u_1002",
+    "event_type": "view",
+    "purchase_amount": 0.0,
+    "timestamp": "2026-05-18T09:16:00Z",
+    "user": {
+      "email": "browser@example.com"
+    }
+  }
+]

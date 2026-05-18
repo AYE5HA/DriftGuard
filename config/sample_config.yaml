@@ -1,0 +1,12 @@
+dataset_name: ecommerce_events
+
+file_path: gs://driftguard-data/events.json
+
+similarity_threshold: 80
+
+expected_schema:
+  user_id: string
+  event_type: string
+  purchase_amount: float
+  timestamp: timestamp
+  user.email: string
