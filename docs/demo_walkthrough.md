@@ -54,9 +54,3 @@ Run the demo against the clean CSV sample:
 python local_demo.py --input samples/events.csv
 ```
 
-This lets reviewers see both the healthy and drifted paths.
-
-## 5. Why This Helps Reviewers
-
-Some Google Cloud resources require billing to be enabled, even for free-tier usage. The local demo lets recruiters, mentors, and reviewers run the project immediately without cloud credentials.
-
