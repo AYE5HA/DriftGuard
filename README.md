@@ -7,7 +7,7 @@
 
 DriftGuard is a beginner-friendly schema drift monitoring system for JSON and CSV files landing in Google Cloud Storage. It samples incoming files, infers the current schema, compares it with a Firestore baseline, logs anomalies to BigQuery, and sends a Slack alert before downstream analytics jobs break.
 
-The project is intentionally small and readable. It is built to feel like a polished junior-to-mid level cloud data engineering portfolio project, not an enterprise platform.
+The project is intentionally small and readable. 
 
 ## Portfolio Summary
 
@@ -324,24 +324,6 @@ Run the lightweight unit tests:
 ```bash
 python -m pytest tests
 ```
-
-If `pytest` is not installed, install it in your virtual environment:
-
-```bash
-pip install pytest
-```
-
-## Screenshots
-
-Suggested portfolio screenshots:
-
-- Local demo terminal output
-- `demo_output/incidents.json`
-- GitHub repository page
-- Cloud Scheduler job
-- Cloud Function logs
-- BigQuery incident rows
-- Slack alert message
 
 ## Future Improvements
 
